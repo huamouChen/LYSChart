@@ -85,7 +85,7 @@
     verticaldefaultGuideStyle.lineWidth = 0.5;
     verticaldefaultGuideStyle.lineColor = [UIColor colorWithRed:221 / 255.0 green:221 / 255.0 blue:221 / 255.0 alpha:1];
     _verticalStyle = verticaldefaultGuideStyle;
-    _isShowVerticalGuide = YES;
+    _isShowVerticalGuide = NO;
     _isShowHorizontalGuide = YES;
     
     // 坐标轴数据样式
@@ -103,7 +103,7 @@
     defaultGriddingStyle.lineWidth = 0.5;
     defaultGriddingStyle.lineColor = [UIColor colorWithRed:221 / 255.0 green:221 / 255.0 blue:221 / 255.0 alpha:1];
     _griddingStyle = defaultGriddingStyle;
-    _isShowGriddingGuide = YES;
+    _isShowGriddingGuide = NO;
     
     // 精度
     _precisionScale = 1;
@@ -121,7 +121,7 @@
     yValuedefaultAxisDataStyle.fontColor = [UIColor blackColor];
     _yValueDataStyle = yValuedefaultAxisDataStyle;
     
-    _isShowBenchmarkLine = YES;
+    _isShowBenchmarkLine = NO;
     LYBenchmarkLineStyle *benchmarkLineStyle = [[LYBenchmarkLineStyle alloc] init];
     benchmarkLineStyle.lineColor = [UIColor redColor];
     benchmarkLineStyle.lineWidth = 1;
