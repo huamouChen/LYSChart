@@ -392,6 +392,10 @@
     CAShapeLayer *pane = [self horizontalLine:BoxLeftBottomPoint width:1 linecolor:_xStyle.lineColor lineHeight:_xStyle.lineWidth];
     pane.anchorPoint = CGPointMake(1, 1);
     [self.layer addSublayer:pane];
+    
+    // 绘制小三角
+    CAShapeLayer *sanjiaoLayer = [self layerWith:POINT(BoxLeftTopPoint.x - (_yStyle.lineWidth * 0.5), BoxLeftTopPoint.y) width:_yStyle.lineWidth * 5 height:_yStyle.lineWidth * 7 fillColor:_yStyle.lineColor];
+    [self.layer addSublayer:sanjiaoLayer];
 }
 #pragma mark - 创建竖线 -
 - (CAShapeLayer *)verticalLine:(CGPoint)bottomPoint height:(CGFloat)height linecolor:(UIColor *)linecolor lineWidth:(CGFloat)lineWidth{
@@ -435,6 +439,20 @@
     LYAnimationLayer *layer = [LYAnimationLayer layer];
     layer.position = point;
     layer.bounds = CGRectMake(0, 0, width, height);
+    return layer;
+}
+// 创建小三角
+- (CAShapeLayer *)layerWith:(CGPoint)point width:(CGFloat)width height:(CGFloat)height fillColor:(UIColor *)fillColor{
+    CAShapeLayer *layer = [CAShapeLayer layer];
+    layer.bounds = CGRectMake(0, 0, width, height);
+    layer.position = point;
+    UIBezierPath *path = [UIBezierPath bezierPath];
+    [path moveToPoint:POINT(0, 0)];
+    [path addLineToPoint:POINT(width, 0)];
+    [path addLineToPoint:POINT(width / 2.0, height * 0.8)];
+    [path addLineToPoint:POINT(0, 0)];
+    layer.fillColor = fillColor.CGColor;
+    layer.path = path.CGPath;
     return layer;
 }
 @end
